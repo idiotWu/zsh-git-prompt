@@ -111,5 +111,5 @@ ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✘%G%}"
 ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[yellow]%}%{+%G%}"
 ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[red]%}%{↓%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[magenta]%}%{↑%G%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[black]%}%{Φ%G%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[black]%}%{Θ‥Θ%G%}" # the elder!
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[red]%}%{*%G%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[black]%}%{Θ‥Θ%G%}" # the Elder!
