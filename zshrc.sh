@@ -102,8 +102,8 @@ git_super_status() {
 }
 
 # Default values for the appearance of the prompt. Configure at will.
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_PREFIX="["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="%{${reset_color}%}%{$fg[black]%}/%{${reset_color}%}"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
@@ -112,4 +112,4 @@ ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[yellow]%}%{+%G%}"
 ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[red]%}%{⇣%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[magenta]%}%{⇡%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[red]%}%{*%G%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[black]%}%{Θ‥Θ%G%}" # the Elder!
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[black]%}%{∅%G%}"
