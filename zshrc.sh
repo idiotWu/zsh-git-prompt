@@ -72,7 +72,10 @@ function join_by {
 git_super_status() {
     precmd_update_git_vars
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
+      BRANCH="$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}"
+
       STATUS=()
+
       if [ "$GIT_BEHIND" -ne "0" ]; then
           STATUS+=("$ZSH_THEME_GIT_PROMPT_BEHIND$GIT_BEHIND")
       fi
@@ -91,19 +94,21 @@ git_super_status() {
       if [ "$GIT_UNTRACKED" -ne "0" ]; then
           STATUS+=("$ZSH_THEME_GIT_PROMPT_UNTRACKED")
       fi
-      if [ "$GIT_CHANGED" -eq "0" ] && [ "$GIT_CONFLICTS" -eq "0" ] && [ "$GIT_STAGED" -eq "0" ] && [ "$GIT_UNTRACKED" -eq "0" ]; then
-          STATUS+=("$ZSH_THEME_GIT_PROMPT_CLEAN")
+
+      if [ ${#STATUS[@]} -eq 0 ]; then
+          echo "$BRANCH"
+          return
       fi
 
       STATUS=$(join_by "$ZSH_THEME_GIT_PROMPT_SEPARATOR" ${STATUS[*]})
 
-      echo "$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}$ZSH_THEME_GIT_PROMPT_PREFIX$STATUS%{${reset_color}%}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+      echo "$BRANCH$ZSH_THEME_GIT_PROMPT_PREFIX$STATUS%{${reset_color}%}$ZSH_THEME_GIT_PROMPT_SUFFIX"
     fi
 }
 
 # Default values for the appearance of the prompt. Configure at will.
-ZSH_THEME_GIT_PROMPT_PREFIX="["
-ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+ZSH_THEME_GIT_PROMPT_PREFIX="("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="%{${reset_color}%}%{$fg[black]%}/%{${reset_color}%}"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[green]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
